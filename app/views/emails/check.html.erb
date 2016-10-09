@@ -1,0 +1,7 @@
+<h1>Check email</h1>
+<p>Check if an email address is on the <b>do not contact</b> list</p>
+
+<%= simple_form_for(:email) do |f| %>
+  <%= f.input :address, as: :email, label: 'Email address', placeholder: 'email@example.com' %>
+  <%= f.submit 'Check email' %>
+<% end %>

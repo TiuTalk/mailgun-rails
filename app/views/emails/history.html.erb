@@ -1,0 +1,27 @@
+<h1>Email history</h1>
+<p>See all the messages sent to an specific address</p>
+
+<%= simple_form_for(:email) do |f| %>
+  <%= f.input :address, as: :email, label: 'Email address', placeholder: 'email@example.com' %>
+  <%= f.submit 'Search events' %>
+<% end %>
+
+<% if @history.present? && @history.any? %>
+<div style="margin-top: 2em">
+  <h3>Messages sent to <%= @email.address %></h3>
+  <table class="table">
+    <thead>
+      <th>Date</th>
+      <th>Event</th>
+    </thead>
+    <tbody>
+      <% @history.each do |event| %>
+        <tr>
+          <td><%= l(Time.at(event['timestamp']).to_datetime) %></td>
+          <td>Message <code><%= event['message']['headers']['subject'] %></code> delivered</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>
