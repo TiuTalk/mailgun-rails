@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
+gem 'simple_form'
 
 group :development, :test do
   gem 'rspec-rails'
