@@ -14,7 +14,7 @@ RSpec.describe Message, type: :model do
     end
 
     let(:domain) {  Rails.application.secrets.mailgun_domain }
-    let(:params) { { from: "no-reply@#{domain}", to: message.email, subject: message.subject, text: message.content } }
+    let(:params) { { from: "no-reply@#{domain}", to: message.email, subject: message.subject, html: message.content } }
 
     context 'with valid params' do
       subject(:message) { described_class.new(email: 'contato@thiagobelem.net', subject: 'Testing', content: 'Something') }

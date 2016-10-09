@@ -11,7 +11,7 @@ class Message
       from: "no-reply@#{mailgun_domain}",
       to: email,
       subject: subject,
-      text: content
+      html: content
     }
 
     response = mailgun_client.send_message(mailgun_domain, params)
