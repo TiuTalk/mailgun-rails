@@ -18,7 +18,7 @@ class WebhookEventsController < ApplicationController
   private
 
   def event_params
-    details = params.permit(:event, :timestamp, :token)
+    details = params.permit(:event, :timestamp, :token, :recipient)
     details[:timestamp] = Time.zone.at(details[:timestamp].to_i)
     details
   end
