@@ -5,14 +5,14 @@
   <thead>
     <th>Date</th>
     <th>Event</th>
-    <th>Token</th>
+    <th>Recipient</th>
   </thead>
   <tbody>
     <% @events.each do |event| %>
       <tr>
         <td><%= l(event.timestamp) %></td>
         <td>Message <code><%= event.event %></code></td>
-        <td><code><%= event.token %></code></td>
+        <td><%= event.recipient %></td>
       </tr>
     <% end %>
   </tbody>

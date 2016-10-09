@@ -4,12 +4,12 @@ RSpec.describe WebhookEventsController, type: :controller do
   render_views
 
   describe 'GET #index' do
-    let!(:event) { WebhookEvent.create!(event: 'click', timestamp: Time.zone.now, token: SecureRandom.hex(10)) }
+    let!(:event) { WebhookEvent.create!(event: 'click', timestamp: Time.zone.now, token: SecureRandom.hex(10), recipient: 'Example') }
 
     it 'return the list of stored events' do
       get :index
       expect(response).to be_ok
-      expect(response.body).to include(event.token)
+      expect(response.body).to include(event.recipient)
     end
   end
 
