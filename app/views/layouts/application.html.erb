@@ -12,7 +12,11 @@
     <%= render 'header' %>
     <%= render 'flash' %>
 
-    <%= yield %>
+    <section>
+      <main>
+        <%= yield %>
+      </main>
+    </section>
 
     <%= javascript_include_tag 'application' %>
   </body>
