@@ -1,0 +1,19 @@
+<h1>Events history</h1>
+<p>See all the webhook events received from Mailgun</p>
+
+<table class="table">
+  <thead>
+    <th>Date</th>
+    <th>Event</th>
+    <th>Token</th>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= l(event.timestamp) %></td>
+        <td>Message <code><%= event.event %></code></td>
+        <td><code><%= event.token %></code></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
