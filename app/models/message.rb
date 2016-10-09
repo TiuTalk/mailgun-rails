@@ -1,7 +1,7 @@
 class Message
   include ActiveModel::Model
 
-  attr_accessor :email, :subject, :content
+  attr_accessor :email, :subject, :content, :campaign
 
   # Validations
   validates :email, :subject, :content, presence: true
@@ -11,7 +11,8 @@ class Message
       from: "no-reply@#{mailgun_domain}",
       to: email,
       subject: subject,
-      html: content
+      html: content,
+      'o:campaign' => campaign
     }
 
     response = mailgun_client.send_message(mailgun_domain, params)
